@@ -22,17 +22,15 @@ RUN apt-get -y install libssl-dev
 WORKDIR /deps/curl/
 
 RUN wget https://curl.haxx.se/download/curl-7.63.0.tar.gz
-
-#############################################
-## unpack
-
 RUN tar -xvzf curl-7.63.0.tar.gz
-
-#############################################
-## build and install libressl
 
 WORKDIR /deps/curl/curl-7.63.0
 
 RUN cmake .
 RUN make
 RUN make install
+
+#############################################
+## sudo is needed for CI agent
+
+RUN apt-get -y install sudo
