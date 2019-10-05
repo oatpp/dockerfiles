@@ -21,5 +21,3 @@ WORKDIR /deps/postgresql/postgresql-11.1
 RUN ./configure --without-readline --without-zlib
 RUN make
 RUN make install
-
-#############################################
