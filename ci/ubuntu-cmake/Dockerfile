@@ -9,4 +9,6 @@ RUN apt-get -y install cmake
 
 RUN apt-get -y install git
 
+RUN apt-get -y install wget
+
 RUN apt-get -y install sudo
