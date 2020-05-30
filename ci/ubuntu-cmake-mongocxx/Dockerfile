@@ -8,15 +8,13 @@ RUN apt-get install -y python
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y perl
 
-#RUN apt-get install -y libmongoc-1.0-0
 
 WORKDIR /download
-#RUN git clone https://github.com/mongodb/mongo-c-driver.git --branch r1.14 --depth 1 \
-#  && cd mongo-c-driver \
-#  && mkdir cmake-build && cd cmake-build \
-#  && cmake -DENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=OFF -DENABLE_TESTS=OFF .. \
-#  && make install -j $(nproc)
-#&& python build/calc_release_version.py > VERSION_CURRENT \
+
+##
+## && python build/calc_release_version.py > VERSION_CURRENT <-- this guy is not working, results in '0.0.0' version
+## && && echo "1.17.0" > VERSION_CURRENT <-- hardcode version instead!
+##
 
 RUN git clone https://github.com/mongodb/mongo-c-driver.git --branch r1.17 --depth 1 \
   && cd mongo-c-driver \
